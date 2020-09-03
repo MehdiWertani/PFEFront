@@ -1,0 +1,65 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="deliveryversion">delivery version</label>
+        <input
+          type="number"
+          class="form-control"
+          id="deliveryversion"
+          required
+          [(ngModel)]="testIteration.deliveryversion"
+          name="deliveryversion"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="expecteddeliverydate">expected delivery date</label>
+        <input
+          class="form-control"
+          id="expecteddeliverydate"
+          required
+          [(ngModel)]="testIteration.expecteddeliverydate"
+          name="expecteddeliverydate"
+        />
+      </div>
+      <div class="form-group">
+        <label for="deliveryobjectif">delivery objectif</label>
+        <input
+          class="form-control"
+          id="deliveryobjectif"
+          required
+          [(ngModel)]="testIteration.deliveryobjectif"
+          name="deliveryobjectif"
+        />
+      </div>
+      <div class="form-group">
+        <label for="state">state</label>
+        <input
+          class="form-control"
+          id="state"
+          required
+          [(ngModel)]="testIteration.state"
+          name="state"
+        />
+      </div>
+      <div class="form-group">
+        <label for="testduration">test duration</label>
+        <input
+          class="form-control"
+          id="testduration"
+          required
+          [(ngModel)]="testIteration.testduration"
+          name="testduration"
+        />
+      </div>
+
+      <button (click)="saveTestIteration()" class="btn btn-success">Create</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Test Iteration Created successfully!</h4>
+      <button class="btn btn-success" (click)="newTestIteration()">Add</button>
+    </div>
+  </div>
+</div>

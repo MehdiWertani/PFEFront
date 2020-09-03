@@ -1,0 +1,54 @@
+<div class="list row">
+  <div class="col-md-8">
+
+
+
+
+  <div class="col-md-6">
+    <h4>Test Iteration List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let testIteration of testIterations; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTestIteration(testIteration, i)"
+      >
+        {{ testIteration.deliveryversion }}
+      </li>
+    </ul>
+
+
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentTestIteration">
+      <h4>Test Iteration</h4>
+      <div>
+        <label><strong>deliveryversion:</strong></label> {{ currentTestIteration.deliveryversion }}
+      </div>
+      <div>
+        <label><strong>expecteddeliverydate:</strong></label>
+        {{ currentTestIteration.expecteddeliverydate }}
+      </div>
+      <div>
+        <label><strong>deliveryobjectif:</strong></label>
+        {{ currentTestIteration.deliveryobjectif }}
+      </div>
+      <div>
+        <label><strong>state:</strong></label>
+        {{ currentTestIteration.state }}
+      </div>
+      <div>
+        <label><strong>testduration:</strong></label>
+        {{ currentTestIteration.testduration}}
+      </div>
+
+
+    </div>
+
+    <div *ngIf="!currentTestIteration">
+      <br />
+      <p>Please click on a Test Iteration</p>
+    </div>
+  </div>
+</div>
+</div>

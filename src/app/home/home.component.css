@@ -1,0 +1,11 @@
+.hero {
+
+  background-size: cover;
+  background-position: center center;
+  background-image: url('src/assets/image/itserv.png') !important;
+  position: center;
+}
+
+
+
+
