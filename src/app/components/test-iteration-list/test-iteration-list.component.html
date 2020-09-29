@@ -13,7 +13,7 @@
         [class.active]="i == currentIndex"
         (click)="setActiveTestIteration(testIteration, i)"
       >
-        {{ testIteration.deliveryversion }}
+        {{ testIteration.iterationName }}
       </li>
     </ul>
 
@@ -23,7 +23,18 @@
     <div *ngIf="currentTestIteration">
       <h4>Test Iteration</h4>
       <div>
+        <label><strong>iterationname:</strong></label>
+        {{ currentTestIteration.iterationname }}
+      </div>
+      <div>
         <label><strong>deliveryversion:</strong></label> {{ currentTestIteration.deliveryversion }}
+      </div>
+      <div>
+        <label><strong>campagneid:</strong></label> {{ currentTestIteration.campagneid }}
+      </div>
+      <div>
+        <label><strong>startdeliverydate:</strong></label>
+        {{ currentTestIteration.startdeliverydate }}
       </div>
       <div>
         <label><strong>expecteddeliverydate:</strong></label>

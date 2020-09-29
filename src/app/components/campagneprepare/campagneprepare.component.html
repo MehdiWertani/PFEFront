@@ -1,0 +1,247 @@
+<form
+
+  [formGroup]="form"
+  (submit)="download()"
+
+>
+<!--  <div class="form-group">-->
+<!--    <label for="SAS_ID_CAMP">SAS_ID_CAMP</label>-->
+<!--    <input-->
+<!--      type="number"-->
+<!--      class="form-control"-->
+<!--      name="SAS_ID_CAMP"-->
+<!--     formControlName="SAS_ID_CAMP"-->
+
+
+<!--    />-->
+
+<!--  </div>-->
+  <div class="form-group">
+    <label for="MSISDN">MSISDN</label>
+    <input
+      type="number"
+      class="form-control"
+      name="MSISDN"
+      formControlName="MSISDN"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="REWARD_TYPE">REWARD_TYPE</label>
+    <input
+      type="text"
+      class="form-control"
+      name="REWARD_TYPE"
+      formControlName="REWARD_TYPE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="ID_TREATMENT">ID_TREATMENT</label>
+    <input
+      type="text"
+      class="form-control"
+      name="ID_TREATMENT"
+      formControlName="ID_TREATMENT"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="START_DATE">START_DATE</label>
+    <input
+      type="date"
+      class="form-control"
+      name="START_DATE"
+    formControlName="START_DATE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="END_DATE">END_DATE</label>
+    <input
+      type="date"
+      class="form-control"
+      name="END_DATE"
+      formControlName="END_DATE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="CUSTOMER_REF"> CUSTOMER_REF</label>
+    <input
+      type="number"
+      class="form-control"
+      name="CUSTOMER_REF"
+     formControlName=" CUSTOMER_REF"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="CUSTOMER_TYPE"> CUSTOMER_TYPE</label>
+    <input
+      type="number"
+      class="form-control"
+      name=" CUSTOMER_TYPE"
+    formControlName="CUSTOMER_TYPE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="PACKAGE_ID"> PACKAGE_ID</label>
+    <input
+      type="number"
+      class="form-control"
+      name="PACKAGE_ID"
+     formControlName="PACKAGE_ID"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="ID_SERVICE"> ID_SERVICE</label>
+    <input
+      type="number"
+      class="form-control"
+      name="ID_SERVICE"
+      formControlName="ID_SERVICE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="CHARGE_TYPE">CHARGE_TYPE</label>
+    <input
+      type="text"
+      class="form-control"
+      name="CHARGE_TYPE"
+     formControlName="CHARGE_TYPE"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="MONTHS">MONTHS</label>
+    <input
+      type="number"
+      class="form-control"
+      name="MONTHS"
+   formControlName="MONTHS"
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="DISCOUNT">DISCOUNT</label>
+    <input
+      type="number"
+      class="form-control"
+      name="DISCOUNT"
+    formControlName="DISCOUNT"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="POINTS">POINTS</label>
+    <input
+      type="number"
+      class="form-control"
+      name="POINTS"
+      formControlName="POINTS"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for=" LIMIT"> LIMIT</label>
+    <input
+      type="number"
+      class="form-control"
+      name=" LIMIT"
+      formControlName="LIMIT"
+
+
+
+    />
+
+  </div>
+  <div class="form-group">
+    <label for=" PRODUCT_ID"> PRODUCT_ID</label>
+    <input
+      type="number"
+      class="form-control"
+      name=" PRODUCT_ID"
+      formControlName="PRODUCT_ID"
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="MSG_DATA"> MSG_DATA</label>
+    <input
+      type="text"
+      class="form-control"
+      name="MSG_DATA"
+     formControlName="MSG_DATA"
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="MSG_SENDER">MSG_SENDER</label>
+    <input
+      type="text"
+      class="form-control"
+      name="MSG_SENDER"
+      formControlName="MSG_SENDER"
+    />
+
+  </div>
+  <div class="form-group">
+    <label for="CODING">CODING</label>
+    <input
+      type="number"
+      class="form-control"
+      name="CODING"
+      formControlName="CODING"
+    />
+
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">
+      CREATE
+    </button>
+  </div>
+  <div class="alert alert-success" *ngIf="submited" >
+    Marketing Campagne Created!
+  </div>
+
+</form>

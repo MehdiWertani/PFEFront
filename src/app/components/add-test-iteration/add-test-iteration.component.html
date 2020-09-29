@@ -2,6 +2,29 @@
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
+        <label for="iterationName">iterationName</label>
+        <input
+          type="text"
+          class="form-control"
+          id="iterationName"
+          required
+          [(ngModel)]="testIteration.iterationName"
+          name="iterationName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="campagneid">campagneid</label>
+        <input
+          type="number"
+          class="form-control"
+          id="campagneid"
+          required
+          [(ngModel)]="testIteration.campagneid"
+          name="campagneid"
+        />
+      </div>
+
+      <div class="form-group">
         <label for="deliveryversion">delivery version</label>
         <input
           type="number"
@@ -12,7 +35,17 @@
           name="deliveryversion"
         />
       </div>
+      <div class="form-group">
+        <label for="startdeliverydate">startdeliverydate</label>
+        <input
 
+          class="form-control"
+          id="startdeliverydate"
+          required
+          [(ngModel)]="testIteration.startdeliverydate"
+          name="startdeliverydate"
+        />
+      </div>
       <div class="form-group">
         <label for="expecteddeliverydate">expected delivery date</label>
         <input

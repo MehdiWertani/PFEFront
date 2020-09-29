@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+//import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
@@ -16,6 +16,12 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+//import { ResultCollectionComponent } from './components/result-collection/result-collection.component';
+
+//import { CampagneExcuteComponent } from './components/campagne-excute/campagne-excute.component';
+//import { CampagnemarketingComponent } from './components/campagneprepare/campagnemarketing/campagnemarketing.component';
+//import { CampagneprepareComponent } from './components/campagneprepare/campagneprepare.component';
 
 //import { UserListComponent } from './components/user-list/user-list.component';
 //import { AddTestIterationComponent } from './components/add-test-iteration/add-test-iteration.component';
@@ -26,13 +32,17 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    //RegisterComponent,
     HomeComponent,
     ProfileComponent,
     //BoardAdminComponent,
     //BoardBillingManagerComponent,
     BoardUserComponent,
     FooterComponent,
+    //ResultCollectionComponent,
+    //CampagneExcuteComponent,
+    //CampagnemarketingComponent,
+    //CampagneprepareComponent,
 
     //UserListComponent,
    // AddTestIterationComponent,
@@ -43,7 +53,9 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

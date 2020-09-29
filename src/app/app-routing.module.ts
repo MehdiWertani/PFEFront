@@ -12,7 +12,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  //{ path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'bil', loadChildren: () => import(`./board-billing-manager/board-billing-manager.module`).then(m => m.BoardBillingManagerModule) },

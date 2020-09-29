@@ -1,0 +1,63 @@
+<form
+
+  [formGroup]="form"
+  (submit)="onsubmite()"
+
+>
+  <div class="form-group">
+    <label for="SAS_ID_CAMP">SAS_ID_CAMP</label>
+    <input
+      type="number"
+      class="form-control"
+      name="SAS_ID_CAMP"
+      formControlName="SAS_ID_CAMP"
+
+
+
+    />
+  </div>
+    <div class="form-group">
+      <label for="START_DATE">START_DATE</label>
+      <input
+        type="number"
+        class="form-control"
+        name="START_DATE"
+        formControlName="START_DATE"
+
+
+
+      />
+    </div>
+      <div class="form-group">
+        <label for="END_DATE">END_DATE</label>
+        <input
+          type="number"
+          class="form-control"
+          name="END_DATE"
+          formControlName="END_DATE"
+
+
+
+        />
+      </div>
+        <div class="form-group">
+          <label for="Campagne Name ">Campagne Name </label>
+          <input
+            type="text"
+            class="form-control"
+            name="Campagne Name "
+            formControlName="Campagne Name "
+
+
+
+          />
+        </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">
+              RUN
+            </button>
+          </div>
+          <div class="alert alert-success" *ngIf="submited" >
+            OK!
+          </div>
+</form>

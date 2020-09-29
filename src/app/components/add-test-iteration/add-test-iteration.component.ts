@@ -8,7 +8,10 @@ import {TestItarationService} from "../../_services/test-itaration.service";
 })
 export class AddTestIterationComponent implements OnInit {
   testIteration={
+    iterationName: '',
+    campagneid:0,
     deliveryversion:0,
+    startdeliverydate: '',
     expecteddeliverydate:'',
     deliveryobjectif:'',
     state:'',
@@ -22,7 +25,10 @@ export class AddTestIterationComponent implements OnInit {
   }
   saveTestIteration():void{
     const data={
+      iterationName:this.testIteration.iterationName,
+      campagneid:this.testIteration.campagneid,
       deliveryversion: this.testIteration.deliveryversion,
+      startdeliverydate:this.testIteration.startdeliverydate,
       expecteddeliverydate: this.testIteration.expecteddeliverydate,
       deliveryobjectif: this.testIteration.deliveryobjectif,
       state: this.testIteration.state,
@@ -39,7 +45,10 @@ export class AddTestIterationComponent implements OnInit {
   newTestIteration():void{
     this.submitted=false;
     this.testIteration={
+      iterationName:'',
+      campagneid:0,
       deliveryversion:0,
+      startdeliverydate:'',
       expecteddeliverydate:'',
       deliveryobjectif:'',
       state:'',
