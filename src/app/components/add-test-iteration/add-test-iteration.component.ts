@@ -26,7 +26,7 @@ export class AddTestIterationComponent implements OnInit {
   saveTestIteration():void{
     const data={
       iterationName:this.testIteration.iterationName,
-      campagneid:this.testIteration.campagneid,
+      campagneid:Date.now(),
       deliveryversion: this.testIteration.deliveryversion,
       startdeliverydate:this.testIteration.startdeliverydate,
       expecteddeliverydate: this.testIteration.expecteddeliverydate,

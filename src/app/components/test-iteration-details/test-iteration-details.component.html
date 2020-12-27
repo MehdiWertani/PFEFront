@@ -1,1 +1,34 @@
-<p>test-iteration-details works!</p>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+  <tr>
+
+    <th scope="col">test</th>
+    <th scope="col">test state</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+    <th scope="col">Campagne Prepation</th>
+    <th scope="col" bgcolor="green">ok</th>
+<button (click)="Details1()">Details</button>
+  </tr>
+  <tr >
+    <th scope="col">Campagne Execution</th>
+    <th scope="col" bgcolor="green">ok</th>
+    <button (click)="Details2()">Details</button>
+  </tr>
+  <tr >
+    <th scope="col">Campagne Sent to Backend</th>
+    <th scope="col" bgcolor="green">ok</th>
+    <button>Details</button>
+  </tr>
+  <tr >
+    <th scope="col">Result Collection</th>
+    <th scope="col" bgcolor="green">{{result}}</th>
+    <button (click)="Details3()">Details</button>
+  </tr>
+  </tbody>
+</table>
+ <button>Export Rapport</button>
