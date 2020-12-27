@@ -1,1 +1,18 @@
-<p>Still Running!!</p>
+<div class="container">
+  <p>
+    <strong>Execution Status : </strong>
+    {{result.executionStatus}}
+  </p>
+  <p *ngIf="result.errorDescription != null">
+    <strong>Error description : </strong>
+    {{result.errorDescription}}
+  </p>
+  <p>
+    <strong>N° of succeeded SMS : </strong>
+    {{result.succeededSmsNbr}}
+  </p>
+  <p>
+    <strong>N° of failed SMS : </strong>
+    {{result.koSmsNbr}}
+  </p>
+</div>

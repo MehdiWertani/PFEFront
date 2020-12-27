@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RunCampagneService} from '../../_services/run-campagne.service';
+import {ResultCollection} from '../../_model/ResultCollection';
 
 @Component({
   selector: 'app-result-collection',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultCollectionComponent implements OnInit {
 
-  constructor() { }
+
+  result: ResultCollection;
+
+  constructor(private service: RunCampagneService) {
+  }
 
   ngOnInit(): void {
+    let campagneId = localStorage.getItem('campId');
+    this.service.getResultCollection(Number(campagneId)).subscribe(data => {
+      // @ts-ignore
+      this.result = data;
+      console.log("result data : ", data)
+    });
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {RunCampagneService} from "../../_services/run-campagne.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {RunCampagneService} from '../../_services/run-campagne.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import {CampagneModel} from '../../_model/CampagneModel';
 
 @Component({
   selector: 'app-campagne-excute',
@@ -9,24 +10,41 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class CampagneExcuteComponent implements OnInit {
 
-  constructor(private runCampagneService:RunCampagneService) { }
-form:FormGroup;
+  launchModel = new CampagneModel();
 
-  submited=false;
+  constructor(private runCampagneService: RunCampagneService) {
+  }
+
+  form: FormGroup;
+
+  submited = false;
+
   ngOnInit(): void {
-    this.form=new FormGroup({
-      SAS_ID_CAMP: new FormControl(''),
-      START_DATE: new FormControl(''),
-      END_DATE: new FormControl(''),
-      Campagne_Name: new FormControl('')
-    })
+    this.form = new FormGroup({
+      campId: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
+      campagneName: new FormControl('')
+    });
 
 
   }
-  onsubmite():string{
-    this.submited=true;
-    return("ok");
+
+  onsubmite(): string {
+    this.submited = true;
+    return ('ok');
 
   }
 
+  runCampagne() {
+    this.launchModel.campagneId = this.form.value.campId;
+    this.launchModel.campagneName = this.form.value.campagneName;
+    this.launchModel.startDate = this.form.value.startDate;
+    this.launchModel.endDate = this.form.value.endDate;
+
+    localStorage.setItem('campId', String(this.launchModel.campagneId));
+
+    let apiResult = this.runCampagneService.runCampagne(this.launchModel);
+    apiResult.subscribe(data => console.log('result :', data));
+  }
 }
