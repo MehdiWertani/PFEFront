@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {TestItarationService} from "../../_services/test-itaration.service";
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {TestItarationService} from '../../_services/test-itaration.service';
+import {Router} from '@angular/router';
+import {CampagneModel} from '../../_model/CampagneModel';
+import {RunCampagneService} from '../../_services/run-campagne.service';
 
 @Component({
   selector: 'app-test-iteration-list',
@@ -8,19 +10,24 @@ import {Router} from "@angular/router";
   styleUrls: ['./test-iteration-list.component.css']
 })
 export class TestIterationListComponent implements OnInit {
-  testIterations: any ;
-  currentTestIteration:null;
-  currentIndex:-1;
- button:string;
+  testIterations: any;
+  currentTestIteration: null;
+  currentIndex: -1;
+  button: string;
+  launchModel = new CampagneModel();
 
-  constructor(private testItarationService:TestItarationService , private route:Router) { }
+  constructor(private testItarationService: TestItarationService,
+              private runCampagneService: RunCampagneService,
+              private route: Router) {
+  }
 
   ngOnInit(): void {
-    this.button="Run";
+    this.button = 'Run';
     this.getTestIterations();
 
   }
-  getTestIterations(): void{
+
+  getTestIterations(): void {
     this.testItarationService.getAll().subscribe(
       data => {
         this.testIterations = data;
@@ -30,19 +37,33 @@ export class TestIterationListComponent implements OnInit {
         console.log(error);
       });
   }
+
   refreshList(): void {
     this.getTestIterations();
     this.currentTestIteration = null;
     this.currentIndex = -1;
   }
+
   setActiveTestIteration(testIteration, index): void {
     this.currentTestIteration = testIteration;
     this.currentIndex = index;
   }
-  Run(){
-    alert("Iteration succefully excuted");
-    this.route.navigate(['/bil/test details'])
-    this.button="shutdown";
+
+  Run(iteration: any) {
+    // alert("Iteration succefully excuted");
+    console.log("iteration ", iteration)
+    this.launchModel.campagneId = iteration.campagneid;
+    // this.launchModel.campagneName = this.form.value.campagneName;
+    // this.launchModel.startDate = this.form.value.startDate;
+    // this.launchModel.endDate = this.form.value.endDate;
+
+    localStorage.setItem('campId', String(this.launchModel.campagneId));
+
+
+    let apiResult = this.runCampagneService.runCampagne(this.launchModel);
+    apiResult.subscribe(data => console.log('result :', data));
+    this.route.navigate(['/bil/test details']);
+    this.button = 'shutdown';
   }
 
 }

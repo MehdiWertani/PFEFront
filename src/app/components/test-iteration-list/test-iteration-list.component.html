@@ -1,32 +1,39 @@
+<div class="container">
 
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-      <tr>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
 
-        <th scope="col">iterationName</th>
-        <th scope="col">campagneid</th>
-        <th scope="col">delivery version</th>
+      <th scope="col">iterationName</th>
+      <th scope="col">campagneid</th>
+      <th scope="col">delivery version</th>
 
-        <th scope="col">start delivery date</th>
-        <th scope="col">expected delivery date</th>
-        <th scope="col">delivery objectif</th>
-        <th scope="col">state</th>
-        <th scope="col">test duration</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let test of testIterations">
+      <th scope="col">start delivery date</th>
+      <th scope="col">expected delivery date</th>
+      <th scope="col">delivery objectif</th>
+      <th scope="col">state</th>
+      <th scope="col">test duration</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let test of testIterations">
 
-        <td>{{ test.iterationName }}</td>
-        <td>{{test.campagneid}}</td>
-        <td>{{test.deliveryversion}}</td>
-        <td>{{test.startdeliverydate}}</td>
-        <td>{{test.expecteddeliverydate}}</td>
-        <td>{{test.deliveryobjectif}}</td>
-        <td>{{test.state}}</td>
-        <td>{{test.testduration}}</td>
-        <td><button (click)="Run()"> {{button}}</button></td>
-      </tr>
-      </tbody>
-    </table>
+      <td>{{ test.iterationName }}</td>
+      <td>{{test.campagneid}}</td>
+      <td>{{test.deliveryversion}}</td>
+      <td>{{test.startdeliverydate}}</td>
+      <td>{{test.expecteddeliverydate}}</td>
+      <td>{{test.deliveryobjectif}}</td>
+      <td>{{test.state}}</td>
+      <td>{{test.testduration}}</td>
+      <td>
+        <button (click)="Run(test)" title="Run test"><i class="fas fa-play"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
+
+</div>

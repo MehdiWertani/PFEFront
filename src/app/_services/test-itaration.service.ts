@@ -17,6 +17,7 @@ export class TestItarationService {
   }
 
   create(data): Observable<any> {
+    console.log("data to save", data)
     return this.http.post(baseUrl+'save', data);
   }
 

@@ -9,26 +9,26 @@
   </tr>
   </thead>
   <tbody>
-  <tr >
+  <tr>
     <th scope="col">Campagne Prepation</th>
-    <th scope="col" bgcolor="green">ok</th>
-<button (click)="Details1()">Details</button>
+    <th bgcolor="green" scope="col">ok</th>
+    <button (click)="Details1()">Details</button>
   </tr>
-  <tr >
+  <tr>
     <th scope="col">Campagne Execution</th>
-    <th scope="col" bgcolor="green">ok</th>
+    <th bgcolor="green" scope="col">ok</th>
     <button (click)="Details2()">Details</button>
   </tr>
-  <tr >
+  <tr>
     <th scope="col">Campagne Sent to Backend</th>
-    <th scope="col" bgcolor="green">ok</th>
+    <th bgcolor="green" scope="col">ok</th>
     <button>Details</button>
   </tr>
-  <tr >
+  <tr>
     <th scope="col">Result Collection</th>
-    <th scope="col" bgcolor="green">{{result}}</th>
+    <th bgcolor="green" scope="col">{{result}}</th>
     <button (click)="Details3()">Details</button>
   </tr>
   </tbody>
 </table>
- <button>Export Rapport</button>
+<button (click)="exportToPdf(result)">Export Rapport</button>

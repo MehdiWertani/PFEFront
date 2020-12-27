@@ -4,76 +4,86 @@
       <div class="form-group">
         <label for="iterationName">iterationName</label>
         <input
-          type="text"
+          [(ngModel)]="testIteration.iterationName"
           class="form-control"
           id="iterationName"
-          required
-          [(ngModel)]="testIteration.iterationName"
           name="iterationName"
+          required
+          type="text"
         />
       </div>
-
+      <div class="form-group">
+        <label for="campagneid">Campagne Id</label>
+        <input
+          [(ngModel)]="testIteration.campagneid"
+          class="form-control"
+          id="campagneid"
+          name="campagneid"
+          required
+          type="number"
+        />
+      </div>
 
       <div class="form-group">
         <label for="deliveryversion">delivery version</label>
         <input
-          type="number"
+          [(ngModel)]="testIteration.deliveryversion"
           class="form-control"
           id="deliveryversion"
-          required
-          [(ngModel)]="testIteration.deliveryversion"
           name="deliveryversion"
+          required
+          type="number"
         />
       </div>
       <div class="form-group">
         <label for="startdeliverydate">startdeliverydate</label>
         <input
 
+          [(ngModel)]="testIteration.startdeliverydate"
           class="form-control"
           id="startdeliverydate"
-          required
-          [(ngModel)]="testIteration.startdeliverydate"
           name="startdeliverydate"
+          required
         />
       </div>
       <div class="form-group">
         <label for="expecteddeliverydate">expected delivery date</label>
         <input
+          [(ngModel)]="testIteration.expecteddeliverydate"
           class="form-control"
           id="expecteddeliverydate"
-          required
-          [(ngModel)]="testIteration.expecteddeliverydate"
           name="expecteddeliverydate"
+          required
         />
       </div>
       <div class="form-group">
         <label for="deliveryobjectif">delivery objectif</label>
         <input
+          [(ngModel)]="testIteration.deliveryobjectif"
           class="form-control"
           id="deliveryobjectif"
-          required
-          [(ngModel)]="testIteration.deliveryobjectif"
           name="deliveryobjectif"
+          required
         />
       </div>
       <div class="form-group">
         <label for="state">state</label>
         <input
+          [(ngModel)]="testIteration.state"
           class="form-control"
           id="state"
-          required
-          [(ngModel)]="testIteration.state"
           name="state"
+          required
         />
       </div>
       <div class="form-group">
         <label for="testduration">test duration</label>
         <input
+          [(ngModel)]="testIteration.testduration"
           class="form-control"
           id="testduration"
-          required
-          [(ngModel)]="testIteration.testduration"
           name="testduration"
+          required
         />
       </div>
 
@@ -82,7 +92,7 @@
 
     <div *ngIf="submitted">
       <h4>Test Iteration Created successfully!</h4>
-      <button class="btn btn-success" (click)="newTestIteration()">Add</button>
+      <button (click)="newTestIteration()" class="btn btn-success">Add</button>
     </div>
   </div>
 </div>
