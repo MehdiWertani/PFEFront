@@ -6,6 +6,7 @@ import {TestIterationListComponent} from "../components/test-iteration-list/test
 import {CampagneprepareComponent} from "../components/campagneprepare/campagneprepare.component";
 import {CampagneExcuteComponent} from "../components/campagne-excute/campagne-excute.component";
 import {ResultCollectionComponent} from "../components/result-collection/result-collection.component";
+import {TestIterationDetailsComponent} from "../components/test-iteration-details/test-iteration-details.component";
 
 const routes: Routes = [
   {path:'',component:BoardBillingManagerComponent,children:[
@@ -14,8 +15,8 @@ const routes: Routes = [
       {path:'viewlist',component:TestIterationListComponent},
       {path:'Marketing Campagne Prepartion',component:CampagneprepareComponent},
       {path:'Run Campagne Marketing',component:CampagneExcuteComponent},
-      {path:'Result Collection',component:ResultCollectionComponent}
-
+      {path:'Result Collection',component:ResultCollectionComponent},
+      {path:'test details',component:TestIterationDetailsComponent}
 
     ]
 
