@@ -1,19 +1,18 @@
 <div class="container">
 
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
+  <table class="table table-hover">
+    <thead class="thead-light">
     <tr>
+      <th scope="col">Iteration name</th>
+      <th scope="col">Campaign Id</th>
+      <th scope="col">Delivery version</th>
 
-      <th scope="col">iterationName</th>
-      <th scope="col">campagneid</th>
-      <th scope="col">delivery version</th>
-
-      <th scope="col">start delivery date</th>
-      <th scope="col">expected delivery date</th>
-      <th scope="col">delivery objectif</th>
-      <th scope="col">state</th>
-      <th scope="col">test duration</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Delivery start date</th>
+      <th scope="col">Expected delivery date</th>
+      <th scope="col">Delivery goal</th>
+      <th scope="col">Status</th>
+      <th scope="col">Test duration</th>
+      <th scope="col">Actions <i class="fas fa-tools"></i></th>
     </tr>
     </thead>
     <tbody>
@@ -28,7 +27,10 @@
       <td>{{test.state}}</td>
       <td>{{test.testduration}}</td>
       <td>
-        <button (click)="Run(test)" title="Run test"><i class="fas fa-play"></i>
+        <button (click)="Run(test)"
+                [disabled]="test.state == 'Finished'"
+                class="btn btn-outline-success"
+                title="Run test"><i class="{{runBtn}}"></i>
         </button>
       </td>
     </tr>

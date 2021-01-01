@@ -1,98 +1,91 @@
-<div style="width: 400px; margin: auto;">
-  <div class="submit-form">
-    <div *ngIf="!submitted">
+<div *ngIf="!submitted">
+  <div class="row">
+    <div class="col">
       <div class="form-group">
-        <label for="iterationName">iterationName</label>
-        <input
-          [(ngModel)]="testIteration.iterationName"
-          class="form-control"
-          id="iterationName"
-          name="iterationName"
-          required
-          type="text"
-        />
+        <label class="form-label" for="iterationName">Iteration name:</label>
+        <input [(ngModel)]="testIteration.iterationName"
+               class="form-control"
+               placeholder="Iteration name"
+               id="iterationName"
+               name="iterationName"
+               required
+               type="text"/>
       </div>
       <div class="form-group">
-        <label for="campagneid">Campagne Id</label>
-        <input
-          [(ngModel)]="testIteration.campagneid"
-          class="form-control"
-          id="campagneid"
-          name="campagneid"
-          required
-          type="number"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="deliveryversion">delivery version</label>
-        <input
-          [(ngModel)]="testIteration.deliveryversion"
-          class="form-control"
-          id="deliveryversion"
-          name="deliveryversion"
-          required
-          type="number"
-        />
+        <label for="campagneid">Campaign id:</label>
+        <input [(ngModel)]="testIteration.campagneid"
+               class="form-control"
+               placeholder="Campaign id"
+               id="campagneid"
+               name="campagneid"
+               required
+               type="number"/>
       </div>
       <div class="form-group">
-        <label for="startdeliverydate">startdeliverydate</label>
-        <input
-
-          [(ngModel)]="testIteration.startdeliverydate"
-          class="form-control"
-          id="startdeliverydate"
-          name="startdeliverydate"
-          required
-        />
+        <label for="deliveryversion">Delivery version:</label>
+        <input [(ngModel)]="testIteration.deliveryversion"
+               class="form-control"
+               placeholder="Delivery version"
+               id="deliveryversion"
+               name="deliveryversion"
+               required
+               type="number"/>
       </div>
       <div class="form-group">
-        <label for="expecteddeliverydate">expected delivery date</label>
-        <input
-          [(ngModel)]="testIteration.expecteddeliverydate"
-          class="form-control"
-          id="expecteddeliverydate"
-          name="expecteddeliverydate"
-          required
-        />
+        <label for="startdeliverydate">Delivery start date:</label>
+        <input [(ngModel)]="testIteration.startdeliverydate"
+               class="form-control"
+               placeholder="yyyy-MM-dd"
+               id="startdeliverydate"
+               name="startdeliverydate"
+               required/>
       </div>
-      <div class="form-group">
-        <label for="deliveryobjectif">delivery objectif</label>
-        <input
-          [(ngModel)]="testIteration.deliveryobjectif"
-          class="form-control"
-          id="deliveryobjectif"
-          name="deliveryobjectif"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="state">state</label>
-        <input
-          [(ngModel)]="testIteration.state"
-          class="form-control"
-          id="state"
-          name="state"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="testduration">test duration</label>
-        <input
-          [(ngModel)]="testIteration.testduration"
-          class="form-control"
-          id="testduration"
-          name="testduration"
-          required
-        />
-      </div>
-
-      <button (click)="saveTestIteration()" class="btn btn-success">Create</button>
     </div>
-
-    <div *ngIf="submitted">
-      <h4>Test Iteration Created successfully!</h4>
-      <button (click)="newTestIteration()" class="btn btn-success">Add</button>
+    <div class="col">
+      <div class="form-group">
+        <label for="expecteddeliverydate">Expected delivery date:</label>
+        <input [(ngModel)]="testIteration.expecteddeliverydate"
+               class="form-control"
+               placeholder="yyyy-MM-dd"
+               id="expecteddeliverydate"
+               name="expecteddeliverydate"
+               required/>
+      </div>
+      <div class="form-group">
+        <label for="deliveryobjectif">Delivery goal:</label>
+        <input [(ngModel)]="testIteration.deliveryobjectif"
+               class="form-control"
+               placeholder="Delivery goal"
+               id="deliveryobjectif"
+               name="deliveryobjectif"
+               required/>
+      </div>
+      <div class="form-group">
+        <label for="state">Status:</label>
+        <input [(ngModel)]="testIteration.state"
+               class="form-control"
+               placeholder="Status"
+               id="state"
+               name="state"
+               required/>
+      </div>
+      <div class="form-group">
+        <label for="testduration">Test duration:</label>
+        <input [(ngModel)]="testIteration.testduration"
+               class="form-control"
+               placeholder="Test duration"
+               id="testduration"
+               name="testduration"
+               required/>
+      </div>
     </div>
   </div>
+  <center>
+    <button (click)="saveTestIteration()" class="btn btn-primary btn-lg btn-block">Create</button>
+  </center>
+</div>
+
+<div *ngIf="submitted">
+  <h4>Test Iteration Created successfully!</h4>
+  <button (click)="newTestIteration()" class="btn btn-success">Add</button>
 </div>

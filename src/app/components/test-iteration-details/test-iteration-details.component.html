@@ -1,34 +1,46 @@
-<table class="table table-bordered table-striped">
-  <thead class="thead-dark">
+<table class="table table-hover">
+  <thead class="thead-light">
   <tr>
-
-    <th scope="col">test</th>
-    <th scope="col">test state</th>
-
-
+    <th scope="col">Test</th>
+    <th scope="col">Status</th>
+    <th scope="col">Actions <i class="fas fa-tools"></i></th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <th scope="col">Campagne Prepation</th>
-    <th bgcolor="green" scope="col">ok</th>
-    <button (click)="Details1()">Details</button>
+    <th scope="col">Campaign preparation</th>
+    <th bgcolor="{{color1}}" scope="col">{{result1}}&nbsp;<i class="fas fa-check-circle"></i></th>
+    <th>
+      <button (click)="Details1()" class="btn btn-outline-info" style="border-radius: 30px;">View details <i
+        class="fas fa-info-circle"></i></button>
+    </th>
   </tr>
   <tr>
-    <th scope="col">Campagne Execution</th>
-    <th bgcolor="green" scope="col">ok</th>
-    <button (click)="Details2()">Details</button>
+    <th scope="col">Campaign execution</th>
+    <th bgcolor="{{color2}}" scope="col">{{result2}}&nbsp;<i class="fas fa-check-circle"></i></th>
+    <th>
+      <button (click)="Details2()" class="btn btn-outline-info" style="border-radius: 30px;">View details <i
+        class="fas fa-info-circle"></i>
+      </button>
+    </th>
   </tr>
   <tr>
-    <th scope="col">Campagne Sent to Backend</th>
-    <th bgcolor="green" scope="col">ok</th>
-    <button>Details</button>
+    <th scope="col">Campaign sent to backend</th>
+    <th bgcolor="{{color3}}" scope="col">{{result3}}&nbsp;<i class="fas fa-check-circle"></i></th>
+    <th>
+      <button class="btn btn-outline-info" style="border-radius: 30px;">View details <i class="fas fa-info-circle"></i>
+      </button>
+    </th>
   </tr>
   <tr>
-    <th scope="col">Result Collection</th>
-    <th bgcolor="green" scope="col">{{result}}</th>
-    <button (click)="Details3()">Details</button>
+    <th scope="col">Result collection</th>
+    <th bgcolor="{{color4}}" scope="col">{{result}} &nbsp;<i class="fas fa-check-circle"></i></th>
+    <th>
+      <button (click)="Details3()" class="btn btn-outline-info" style="border-radius: 30px;">View details <i
+        class="fas fa-info-circle"></i></button>
+    </th>
   </tr>
   </tbody>
 </table>
-<button (click)="exportToPdf(result)">Export Rapport</button>
+<button (click)="exportToPdf(result)" class="btn btn-primary">Export report as PDF &nbsp; <i
+  class="fas fa-file-export"></i></button>

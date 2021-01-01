@@ -1,19 +1,20 @@
 <div class="container">
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
+  <table class="table table-hover">
+    <thead class="thead-light">
     <tr>
-
       <th scope="col">Status</th>
-      <th scope="col">nbr_sms_succes</th>
-      <th scope="col">nbr_sms_error</th>
+      <th scope="col">Suceeded SMS</th>
+      <th scope="col">Failed SMS</th>
+      <th scope="col">Total sent SMS</th>
 
     </tr>
     </thead>
     <tbody>
-    <tr >
+    <tr>
       <th scope="col">{{result.executionStatus}}</th>
       <th scope="col">{{result.succeededSmsNbr}}</th>
       <th scope="col">{{result.koSmsNbr}}</th>
+      <th scope="col">{{result.koSmsNbr + result.succeededSmsNbr}}</th>
     </tr>
 
     </tbody>

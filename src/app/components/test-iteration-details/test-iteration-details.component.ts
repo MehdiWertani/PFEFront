@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {RunCampagneService} from '../../_services/run-campagne.service';
+import {CampagneModel} from '../../_model/CampagneModel';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -13,11 +14,15 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class TestIterationDetailsComponent implements OnInit {
   ID: number;
-  result: string;
-  color1 = false;
-  color2 = false;
-  color3 = false;
-  color4 = false;
+  color1 = 'yellow';
+  color2 = 'yellow';
+  color3 = 'yellow';
+  color4 = 'yellow';
+
+  result = 'Pending';
+  result1 = 'Pending';
+  result2 = 'Pending';
+  result3 = 'Pending';
 
   constructor(private runCampagneService: RunCampagneService,
               private route: Router) {
@@ -25,12 +30,34 @@ export class TestIterationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.ID = Date.now();
-    this.result = 'ok';
-    setTimeout( () => { this.color1 = true }, 2000 );
-    setTimeout( () => { this.color2 = true }, 4000 );
-    setTimeout( () => { this.color3 = true }, 6000 );
-    setTimeout( () => { this.color4 = true }, 8000 );
-
+    let firstExec = localStorage.getItem('firstExec');
+    console.log('firstExec ', firstExec);
+    let isFirstExecution = (firstExec == 'true');
+    console.log('isFirst : ', isFirstExecution);
+    if (isFirstExecution) {
+      setTimeout(() => {
+        this.result1 = 'OK';
+        this.color1 = 'green';
+      }, 2000);
+      setTimeout(() => {
+        this.result2 = 'OK';
+        this.color2 = 'green';
+      }, 4000);
+      setTimeout(() => {
+        this.result3 = 'OK';
+        this.color3 = 'green';
+      }, 6000);
+      setTimeout(() => {
+        this.result = 'OK';
+        this.color4 = 'green';
+      }, 8000);
+    } else {
+      this.result = 'OK';
+      this.result1 = 'OK';
+      this.result2 = 'OK';
+      this.result3 = 'OK';
+    }
+    localStorage.setItem('firstExec', 'false');
   }
 
   Details1() {
@@ -53,19 +80,48 @@ export class TestIterationDetailsComponent implements OnInit {
   exportToPdf(result: any) {
     console.log('export :', result);
     let campId = localStorage.getItem('campId');
+    let iteration = localStorage.getItem('iterationName');
     let statusEx;
     let sSms;
     let fSms;
-    this.runCampagneService.getResultCollection(Number(campId)).subscribe(data => {
-      console.log('data : ', data);
+    let model = new CampagneModel();
+    model.iterationName = iteration;
+    model.campagneId = Number(campId);
+    model.download = true;
+    this.runCampagneService.runCampagne(model).subscribe(data => {
       // @ts-ignore
-      statusEx = data.executionStatus;
-      // @ts-ignore
-      sSms = data.succeededSmsNbr;
-      // @ts-ignore
-      fSms = data.koSmsNbr;
-      this.preparePdf(statusEx, sSms, fSms);
+      this.createPdf(data.body);
     });
+    // this.runCampagneService.getResultCollection(Number(campId)).subscribe(data => {
+    //   console.log('data : ', data);
+    //   // @ts-ignore
+    //   statusEx = data.executionStatus;
+    //   // @ts-ignore
+    //   sSms = data.succeededSmsNbr;
+    //   // @ts-ignore
+    //   fSms = data.koSmsNbr;
+    //   this.preparePdf(statusEx, sSms, fSms);
+    // });
+  }
+
+  createPdf(data: any) {
+    let blob = new Blob([data], {type: 'application/pdf'});
+    // console.log("vlob ", blob.)
+    // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+    //   window.navigator.msSaveOrOpenBlob(blob); //For IE browser
+    // }
+    const dataUrl = `data:'application/pdf';base64,${data}`;
+
+    const linkElement = document.createElement('a');
+    // const url = window.URL.createObjectURL(data);
+    linkElement.setAttribute('href', dataUrl);
+    linkElement.setAttribute('download', 'report_campaign.pdf');
+    const clickEvent = new MouseEvent('click', {
+      'view': window,
+      'bubbles': true,
+      'cancelable': false
+    });
+    linkElement.dispatchEvent(clickEvent);
   }
 
   preparePdf(statusEx, sSms, fSms) {
