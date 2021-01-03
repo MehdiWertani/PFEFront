@@ -1,33 +1,33 @@
-<div class="card my-5">
-  <div class="card-body">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-      <tr>
-
-        <th scope="col">Name</th>
-        <th scope="col">roles</th>
-        <th scope="col">Email</th>
-
-
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of users">
-
-        <td>{{ user.username }}</td>
-        <td><ul>
-          <li *ngFor="let role of user.roles">
-            {{ role.name }}
-          </li>
-        </ul></td>
-
-
-        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-        <button class="badge badge-danger mr-2" (click)="deleteUser()">
-          Delete
+<div class="container">
+  <table class="table table-hover">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Roles</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="users == null || users.length <= 0">
+      <td colspan="8">No records found</td>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td *ngFor="let role of user.roles">
+        <pre>{{role.name}}</pre>
+      </td>
+      <td>
+        <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+      </td>
+      <td>
+        <button (click)="deleteUser(user.id)" class="btn btn-outline-danger" style="border-radius: 35px;">
+          <i class="fas fa-trash-alt"></i> Delete
         </button>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
 </div>

@@ -1,18 +1,18 @@
-<h3>Board Admin</h3>
-<ul class="list-group">
-
-  <li class="list-group-item">
-    <a [routerLink]="'view-UserList'" routerLinkActive="active">
-      View User List
-    </a>
-
-  </li>
-</ul>
-  <ul class="list-group">
-  <li>
-    <a [routerLink]="'CreateUser'" routerLinkActive="active">
-          create User
-    </a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<div class="container">
+  <h3>Board Admin</h3>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="'view-UserList'" class="nav-link active" routerLinkActive="active">
+        <i class="fas fa-list"></i> All users
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="'CreateUser'" class="nav-link" routerLinkActive="active">
+        <i class="fas fa-user-plus"></i> Create new user
+      </a>
+    </li>
+  </ul>
+  <div class="col mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

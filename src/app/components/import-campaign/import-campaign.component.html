@@ -1,0 +1,20 @@
+<div class="container">
+  <p>
+    <strong>
+      <i class="fas fa-info-circle"></i> Please import a valid CSV file containing campaign data to be imported
+    </strong>
+  </p>
+  <br>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for="file">Choose File:</label>
+    <input type="file"
+           class="form-control-file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+  </div>
+<!--  <button class="btn btn-primary">-->
+<!--    Import file &nbsp;<i class="fas fa-cloud-upload-alt"></i>-->
+<!--  </button>-->
+</div>

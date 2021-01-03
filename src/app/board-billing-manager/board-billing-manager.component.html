@@ -3,12 +3,20 @@
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a [routerLink]="'viewlist'" class="nav-link active" routerLinkActive="active">
-        View test iterations
+        <i class="fas fa-list-ul"></i> View test iterations
       </a>
     </li>
     <li class="nav-item">
       <a [routerLink]="'create'" class="nav-link" routerLinkActive="active">
-        Create a test iteration
+        <i class="fas fa-plus-square"></i> Create a test iteration
+      </a>
+    </li>
+    <a [routerLink]="'campaigns'" class="nav-link active" routerLinkActive="active">
+      <i class="fas fa-list-ul"></i> View campaigns
+    </a>
+    <li class="nav-item">
+      <a [routerLink]="'Import'" class="nav-link" routerLinkActive="active">
+        <i class="fas fa-cloud-upload-alt"></i> Import campaign
       </a>
     </li>
   </ul>

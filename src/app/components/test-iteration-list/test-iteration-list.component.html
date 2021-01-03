@@ -16,6 +16,9 @@
     </tr>
     </thead>
     <tbody>
+    <tr *ngIf="testIterations == null || testIterations.length <= 0">
+      <td colspan="8">No records found</td>
+    </tr>
     <tr *ngFor="let test of testIterations">
 
       <td>{{ test.iterationName }}</td>

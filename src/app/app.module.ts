@@ -17,6 +17,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ImportCampaignComponent } from './components/import-campaign/import-campaign.component';
+import { CampaignListComponent } from './components/campaign-list/campaign-list.component';
 //import { ResultCollectionComponent } from './components/result-collection/result-collection.component';
 
 //import { CampagneExcuteComponent } from './components/campagne-excute/campagne-excute.component';
@@ -39,6 +41,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     //BoardBillingManagerComponent,
     BoardUserComponent,
     FooterComponent,
+    ImportCampaignComponent,
+    CampaignListComponent,
     //ResultCollectionComponent,
     //CampagneExcuteComponent,
     //CampagnemarketingComponent,

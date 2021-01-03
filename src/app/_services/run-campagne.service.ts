@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CampagneModel} from '../_model/CampagneModel';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,9 @@ export class RunCampagneService {
   constructor(private http: HttpClient) {
   }
 
+  getAllCampaigns(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/all`);
+  }
 
   runCampagne(model: CampagneModel) {
     console.log(`http invoke : ${this.apiUrl}/launch_campagne`, model);
@@ -21,5 +25,9 @@ export class RunCampagneService {
   getResultCollection(campagneId: number) {
     console.log(`http invoke : ${this.apiUrl}/result_collection/${campagneId}`);
     return this.http.get(`${this.apiUrl}/result_collection/${campagneId}`);
+  }
+
+  deleteCampaign(campaignId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${campaignId}`);
   }
 }
