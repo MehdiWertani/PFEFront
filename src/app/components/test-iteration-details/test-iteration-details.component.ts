@@ -72,7 +72,7 @@ export class TestIterationDetailsComponent implements OnInit {
         // console.log('total sms ', this.totalSms);
         console.log('exeuction finish : ', this.isExecutionSuccess);
         if (this.totalSms >= 0) {
-          let itName = localStorage.getItem("iterationName");
+          let itName = localStorage.getItem('iterationName');
           this.runCampagneService.launchCampaign(this.generatedCampId, this.totalSms, itName).subscribe(data =>
               console.log(data),
             error => this.result3 = 'Error');
@@ -113,15 +113,23 @@ export class TestIterationDetailsComponent implements OnInit {
   }
 
   Details1() {
-    alert('file created with Id:');
-    alert(this.ID);
+    alert(`Campaign created successfully : \n
+      - Campaign id: ${localStorage.getItem("campId")}
+      - Creation date : ${new Date(Number(localStorage.getItem("campId")) * 1000).toLocaleDateString("en-US")}
+    `
+    );
+    // alert('Campaign prepared and its file was created at : ',);
+    // alert(this.ID);
 
   }
 
   Details2() {
-    alert('Excution succefull');
+    alert(`Campaign execution passed successfully, the file was imported to database`);
+  }
 
-
+  detailsBE() {
+    alert(`Campaign sent to backend successfully. \n
+     Waiting for result collection...`);
   }
 
   Details3() {
