@@ -65,8 +65,9 @@ export class TestIterationListComponent implements OnInit {
       localStorage.setItem('iterationName', String(this.launchModel.iterationName));
 
 
-      let apiResult = this.runCampagneService.runCampagne(this.launchModel);
-      apiResult.subscribe(data => console.log('result :', data));
+
+      // let apiResult = this.runCampagneService.runCampagne(this.launchModel);
+      // apiResult.subscribe(data => console.log('result :', data));
       this.route.navigate(['/bil/test details']);
       this.button = 'shutdown';
       localStorage.setItem("firstExec", "true");

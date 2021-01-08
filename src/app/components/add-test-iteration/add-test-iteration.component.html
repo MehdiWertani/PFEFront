@@ -31,15 +31,6 @@
                required
                type="number"/>
       </div>
-      <div class="form-group">
-        <label for="startdeliverydate">Delivery start date:</label>
-        <input [(ngModel)]="testIteration.startdeliverydate"
-               class="form-control"
-               placeholder="yyyy-MM-dd"
-               id="startdeliverydate"
-               name="startdeliverydate"
-               required/>
-      </div>
     </div>
     <div class="col">
       <div class="form-group">
@@ -61,23 +52,32 @@
                required/>
       </div>
       <div class="form-group">
-        <label for="state">Status:</label>
-        <input [(ngModel)]="testIteration.state"
+        <label for="startdeliverydate">Delivery start date:</label>
+        <input [(ngModel)]="testIteration.startdeliverydate"
                class="form-control"
-               placeholder="Status"
-               id="state"
-               name="state"
+               placeholder="yyyy-MM-dd"
+               id="startdeliverydate"
+               name="startdeliverydate"
                required/>
       </div>
-      <div class="form-group">
-        <label for="testduration">Test duration:</label>
-        <input [(ngModel)]="testIteration.testduration"
-               class="form-control"
-               placeholder="Test duration"
-               id="testduration"
-               name="testduration"
-               required/>
-      </div>
+<!--      <div class="form-group">-->
+<!--        <label for="state">Status:</label>-->
+<!--        <input [(ngModel)]="testIteration.state"-->
+<!--               class="form-control"-->
+<!--               placeholder="Status"-->
+<!--               id="state"-->
+<!--               name="state"-->
+<!--               required/>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="testduration">Test duration:</label>-->
+<!--        <input [(ngModel)]="testIteration.testduration"-->
+<!--               class="form-control"-->
+<!--               placeholder="Test duration"-->
+<!--               id="testduration"-->
+<!--               name="testduration"-->
+<!--               required/>-->
+<!--      </div>-->
     </div>
   </div>
   <center>

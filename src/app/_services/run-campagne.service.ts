@@ -13,6 +13,19 @@ export class RunCampagneService {
   constructor(private http: HttpClient) {
   }
 
+  prepareCampaign() {
+    return this.http.post(`${this.apiUrl}/prepare`, {});
+  }
+
+  executeCampaign(campId: any) {
+    return this.http.post(`${this.apiUrl}/execute/${campId}`, {});
+  }
+
+  launchCampaign(campId: any, totalSms: any, iterationName: any) {
+    console.log('launch : ', `${this.apiUrl}/launch/${campId}?nbr=${totalSms}`);
+    return this.http.post(`${this.apiUrl}/launch/${campId}?nbr=${totalSms}&name=${iterationName}`, {});
+  }
+
   getAllCampaigns(): Observable<any> {
     return this.http.get(`${this.apiUrl}/all`);
   }

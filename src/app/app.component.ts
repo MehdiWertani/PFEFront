@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showBillingManagerBoard = this.roles.includes('ROLE_BILLINGMANAGER');
+      this.showBillingManagerBoard = this.roles.includes('ROLE_DELIVERY_MANAGER');
 
       this.username = user.username;
     }

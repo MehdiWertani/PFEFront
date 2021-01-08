@@ -24,6 +24,11 @@ export class TestIterationDetailsComponent implements OnInit {
   result2 = 'Pending';
   result3 = 'Pending';
 
+  generatedCampId: string;
+  isPrepareSuccess = false;
+  isExecutionSuccess = false;
+  totalSms: number;
+
   constructor(private runCampagneService: RunCampagneService,
               private route: Router) {
   }
@@ -36,21 +41,68 @@ export class TestIterationDetailsComponent implements OnInit {
     console.log('isFirst : ', isFirstExecution);
     if (isFirstExecution) {
       setTimeout(() => {
+        this.runCampagneService.prepareCampaign().subscribe(data =>
+            this.generatedCampId = String(data),
+          error => this.result = 'Error');
+        this.isPrepareSuccess = this.generatedCampId !== '';
         this.result1 = 'OK';
         this.color1 = 'green';
       }, 2000);
+
       setTimeout(() => {
+        console.log('prepare finish : ', this.isPrepareSuccess);
+        if (this.isPrepareSuccess === true) {
+          localStorage.setItem('campId', this.generatedCampId);
+          this.runCampagneService.executeCampaign(this.generatedCampId).subscribe(data => {
+              // @ts-ignore
+              this.totalSms = data.smsNumber;
+              console.log('exec data ', data);
+            }, error => this.result2 = 'Error'
+          );
+          // console.log('total sms ', this.totalSms);
+          // console.log('total sms ', this.totalSms >= 0);
+          // this.isExecutionSuccess = this.totalSms >= 0 && this.generatedCampId !== '';
+          // console.log('is exec', this.totalSms >= 0 && this.generatedCampId !== '');
+        }
         this.result2 = 'OK';
         this.color2 = 'green';
       }, 4000);
+
       setTimeout(() => {
+        // console.log('total sms ', this.totalSms);
+        console.log('exeuction finish : ', this.isExecutionSuccess);
+        if (this.totalSms >= 0) {
+          let itName = localStorage.getItem("iterationName");
+          this.runCampagneService.launchCampaign(this.generatedCampId, this.totalSms, itName).subscribe(data =>
+              console.log(data),
+            error => this.result3 = 'Error');
+        }
         this.result3 = 'OK';
         this.color3 = 'green';
       }, 6000);
       setTimeout(() => {
+        this.runCampagneService.getResultCollection(Number(this.generatedCampId)).subscribe(data => {
+          console.log(data);
+        }, error => this.result = 'Error');
         this.result = 'OK';
         this.color4 = 'green';
       }, 8000);
+      // setTimeout(() => {
+      //   this.result1 = 'OK';
+      //   this.color1 = 'green';
+      // }, 2000);
+      // setTimeout(() => {
+      //   this.result2 = 'OK';
+      //   this.color2 = 'green';
+      // }, 4000);
+      // setTimeout(() => {
+      //   this.result3 = 'OK';
+      //   this.color3 = 'green';
+      // }, 6000);
+      // setTimeout(() => {
+      //   this.result = 'OK';
+      //   this.color4 = 'green';
+      // }, 8000);
     } else {
       this.result = 'OK';
       this.result1 = 'OK';

@@ -17,6 +17,7 @@ export class ResultCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     let campagneId = localStorage.getItem('campId');
+    console.log("camp id", campagneId);
     this.service.getResultCollection(Number(campagneId)).subscribe(data => {
       // @ts-ignore
       this.result = data;
